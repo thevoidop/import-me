@@ -1,39 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏭 import-me: Industrial Sourcing Engine
 
-## Getting Started
+An AI-powered B2B platform designed to revolutionize how businesses find raw material 
+suppliers and manufacturers. By combining automated web data extraction with advanced 
+Large Language Model processing, this engine delivers highly relevant, scored, and 
+comparable supplier results based on complex natural language requirements.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Core Features
+
+* **🧠 Intelligent Sourcing:** Describe your exact requirements in plain English 
+  (e.g., materials, compliance standards, volume capacity, and geographical location).
+* **🕷️ Automated Data Gathering:** Integrates with **Apify Actors** to scrape real-time 
+  supplier data from across the web, ensuring up-to-date databases.
+* **🤖 AI-Driven Processing:** Utilizes **Google Gemini** to process raw scraped data, 
+  clean it, and extract meaningful insights.
+* **📊 Smart Match Scoring:** Gemini evaluates supplier capabilities against your 
+  specific query, generating a "Best Match Score" for quick decision-making.
+* **📇 Contact Extraction:** Automatically identifies and extracts crucial B2B contact 
+  information, including email addresses, phone numbers, and key personnel.
+* **⚖️ Supplier Comparison & Filtering:** Side-by-side comparison of vendors with 
+  advanced filtering options based on match scores, compliance, and capabilities.
+
+---
+
+## 🛠️ Technology Stack
+
+* **Frontend:** React / Next.js (Styled with Tailwind CSS)
+* **Data Scraping & Extraction:** Apify Platform (Custom Actors)
+* **AI & Natural Language Processing:** Google Gemini API
+* **Icons:** `react-icons`
+
+---
+
+## ⚙️ How It Works (The Pipeline)
+
+1. User Input:
+   The user enters a detailed query: "Looking for ISO 9001 certified aluminum 
+   extrusion manufacturers in Southeast Asia capable of 50 tons/month."
+
+2. Query Interpretation & Scraping (Apify):
+   The system triggers an Apify actor to crawl industry directories, manufacturer 
+   websites, and B2B portals for relevant raw data.
+
+3. Data Processing (Gemini):
+   The raw data from Apify is fed into Gemini. Gemini extracts 
+   the structured data (company name, materials, compliance, contact info).
+
+4. Scoring & Ranking:
+   Gemini evaluates the extracted data against the user's original criteria, 
+   assigning a match percentage/score to each supplier.
+
+5. Presentation:
+   The React frontend displays the top matches, allowing the user to filter, 
+   compare, and export the supplier list.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Node.js (v18+)
+* An [Apify](https://apify.com/) Account & API Token
+* A [Google AI Studio](https://aistudio.google.com/) Gemini API Key
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory:
+```js
+APIFY_API_TOKEN=your_apify_token_here
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-
-HakunaMatata
+### Installation
+```bash
+npm install
+npm run dev
+```
+Open http://localhost:3000 to access the Industrial Sourcing Engine.
